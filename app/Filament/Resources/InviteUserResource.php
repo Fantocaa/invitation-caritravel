@@ -27,6 +27,10 @@ class InviteUserResource extends Resource
             ->schema([
                 TextInput::make('name')
                     ->required()
+                    ->label('Nama User'),
+                TextInput::make('id_user')
+                    ->disabled()
+                    ->label('UUID User'),
             ]);
     }
 
@@ -34,10 +38,11 @@ class InviteUserResource extends Resource
     {
         return $table
             ->columns([
-
                 TextColumn::make('id'),
-                TextColumn::make('id_user'),
                 TextColumn::make('name')
+                    ->label('Nama User'),
+                TextColumn::make('id_user')
+                    ->label('UUID User'),
             ])
             ->filters([
                 //

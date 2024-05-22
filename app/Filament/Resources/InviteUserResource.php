@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use Filament\Forms;
+use Filament\Tables;
+use Filament\Forms\Form;
+use App\Models\InviteUser;
+use Filament\Tables\Table;
+use Filament\Resources\Resource;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\InviteUserResource\Pages;
+use App\Filament\Resources\InviteUserResource\RelationManagers;
+use Filament\Forms\Components\TextInput;
+use Filament\Tables\Columns\TextColumn;
+
+class InviteUserResource extends Resource
+{
+    protected static ?string $model = InviteUser::class;
+
+    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                TextInput::make('name')
+                    ->required()
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+
+                TextColumn::make('id'),
+                TextColumn::make('id_user'),
+                TextColumn::make('name')
+            ])
+            ->filters([
+                //
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\BulkActionGroup::make([
+                    Tables\Actions\DeleteBulkAction::make(),
+                ]),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListInviteUsers::route('/'),
+            'create' => Pages\CreateInviteUser::route('/create'),
+            'edit' => Pages\EditInviteUser::route('/{record}/edit'),
+        ];
+    }
+}

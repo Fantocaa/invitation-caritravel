@@ -18,8 +18,8 @@ export default function Invitation() {
                 return <MainEvent setPage={setPage} />;
             case "products":
                 return <Map setPage={setPage} />;
-            case "invitation":
-                return <Invitations setPage={setPage} />;
+            // case "invitation":
+            //     return <Invitations setPage={setPage} />;
             case "thanks":
                 return <Thanks setPage={setPage} />;
             default:
@@ -68,7 +68,7 @@ export default function Invitation() {
                             />
                         </button>
                     </li>
-                    <li onClick={() => setPage("invitation")}>
+                    {/* <li onClick={() => setPage("invitation")}>
                         <button>
                             <img
                                 src={
@@ -79,7 +79,7 @@ export default function Invitation() {
                                 alt="rsvp"
                             />
                         </button>
-                    </li>
+                    </li> */}
                     <li onClick={() => setPage("thanks")}>
                         <button>
                             <img

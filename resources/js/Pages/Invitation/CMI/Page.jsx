@@ -30,7 +30,7 @@ export default function Invitation() {
     return (
         <>
             <Head title="Grand Opening PT. Cahaya Mercusuar Indonesia" />
-            <nav className="mx-auto fixed bottom-6 inset-x-0 text-slate-50 z-50 px-4">
+            <nav className="mx-auto fixed bottom-0 inset-x-0 text-slate-50 z-50 px-4">
                 <ul className="flex justify-center gap-4 md:gap-8">
                     <li onClick={() => setPage("home")}>
                         <button>

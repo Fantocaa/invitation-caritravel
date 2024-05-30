@@ -4,6 +4,9 @@ import { Button } from "@/Components/ui/button";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { usePage } from "@inertiajs/react";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 export default function MainEvent({ setPage }) {
     useEffect(() => {
@@ -13,6 +16,66 @@ export default function MainEvent({ setPage }) {
             easing: "ease-out-cubic",
         });
     }, []);
+
+    const { inviteUser } = usePage().props;
+
+    const MySwal = withReactContent(Swal);
+
+    const confirmAttendance = (status) => {
+        // Mendapatkan token CSRF dari meta tag
+        const csrfToken = document
+            .querySelector('meta[name="csrf-token"]')
+            .getAttribute("content");
+
+        fetch(
+            `/api/cahayamercusuar/invitation/${inviteUser.invitation_link}/status`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-CSRF-TOKEN": csrfToken,
+                },
+                body: JSON.stringify({ status }), // status akan berisi "Hadir" atau "Tidak Hadir"
+            }
+        )
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                return response.json();
+            })
+            .then((data) => {
+                // Tampilkan pesan sukses menggunakan Swal atau pesan lainnya
+                Swal.fire(
+                    "Terima kasih!",
+                    "Kehadiran Anda telah dikonfirmasi.",
+                    "success"
+                );
+
+                // Kemudian arahkan pengguna ke halaman yang sesuai
+                setPage("thanks");
+            })
+            .catch((error) => {
+                // Tampilkan pesan error menggunakan Swal atau pesan lainnya
+                Swal.fire("Error!", `Request failed: ${error}`, "error");
+            });
+    };
+
+    const openModal = () => {
+        MySwal.fire({
+            title: <p>Konfirmasi Kehadiran</p>,
+            icon: "question",
+            showCancelButton: true,
+            confirmButtonText: "Hadir",
+            cancelButtonText: "Tidak Hadir",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                confirmAttendance("Hadir");
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                confirmAttendance("Tidak Hadir");
+            }
+        });
+    };
 
     return (
         <>
@@ -71,14 +134,37 @@ export default function MainEvent({ setPage }) {
                             data-aos-delay="400"
                         /> */}
                         <Countdown />
-                        <Button
+                        {/* <Button
                             className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl mb-16"
                             onClick={() => setPage("products")}
                             data-aos="fade-up"
                             data-aos-delay="500"
                         >
                             See Location
-                        </Button>
+                        </Button> */}
+                        <div className="flex gap-3 justify-center">
+                            <a
+                                href="https://maps.app.goo.gl/cFNvAkooc2y1bW6w8"
+                                target="__blank"
+                                // className="px-8"
+                            >
+                                <button
+                                    className="bg-yellow-400 hover:bg-yellow-200 text-slate-800 rounded-xl text-base p-3 px-4 2xl:text-2xl 2xl:p-6 "
+                                    data-aos="fade-up"
+                                    data-aos-delay="600"
+                                >
+                                    Lihat Lokasi
+                                </button>
+                            </a>
+                            <button
+                                className="bg-pink-500 hover:bg-pink-200 text-white rounded-xl text-base p-3 px-4 2xl:text-2xl 2xl:p-6 "
+                                onClick={openModal}
+                                data-aos="fade-up"
+                                data-aos-delay="600"
+                            >
+                                Konfirmasi Kehadiran
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

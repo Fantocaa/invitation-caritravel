@@ -15,4 +15,4 @@ Route::post('/caritravel/invitation/{uuid}/status', [UserData::class, 'status'])
 
 Route::post('/cahayamercusuar/invitation/{uuid}/status', [UserDataCMI::class, 'status'])->name('invitation.status.cahayamercusuar');
 // Route::post('/cahayamercusuar/invitation/{uuid}/confirmation', [UserDataCMI::class, 'status_confirmation'])->name('invitation.status_confirmation.cahayamercusuar');
-Route::get('/cahayamercusuar/invitation/{uuid}/confirmation', [UserDataCMI::class, 'status_confirmation'])->name('invitation.status_confirmation.cahayamercusuar');
+// Route::get('/cahayamercusuar/invitation/{uuid}/confirmation', [UserDataCMI::class, 'status_confirmation'])->name('invitation.status_confirmation.cahayamercusuar');

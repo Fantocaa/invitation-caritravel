@@ -13,6 +13,8 @@ class ListInviteUsers extends ListRecords
     protected function getHeaderActions(): array
     {
         return [
+            Actions\Action::make('export')
+                ->url(url('/api/cahayamercusuar/export')),
             Actions\CreateAction::make(),
         ];
     }

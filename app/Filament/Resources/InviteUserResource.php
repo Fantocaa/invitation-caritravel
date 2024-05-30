@@ -12,14 +12,20 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use App\Filament\Resources\InviteUserResource\Pages;
 use App\Filament\Resources\InviteUserResource\RelationManagers;
+use App\Http\Controllers\UserData;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Tables\Columns\TextColumn;
+
 
 class InviteUserResource extends Resource
 {
     protected static ?string $model = InviteUser::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationLabel = 'Cari Travel';
+    protected static ?string $modelLabel = 'Invitation User';
+    protected static ?string $navigationGroup = 'Invitation Management';
 
     public static function form(Form $form): Form
     {
@@ -31,6 +37,10 @@ class InviteUserResource extends Resource
                 TextInput::make('id_user')
                     ->disabled()
                     ->label('UUID User'),
+                Textarea::make('note')
+                    ->required()
+                    ->label('Catatan')
+                    ->rows(8),
             ]);
     }
 
@@ -38,17 +48,27 @@ class InviteUserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('id'),
+                TextColumn::make('id')->sortable(),
                 TextColumn::make('name')
-                    ->label('Nama User'),
-                TextColumn::make('id_user')
-                    ->label('UUID User'),
+                    ->label('Nama User')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('link_invitation')
+                    ->label('Link Invitation User')
+                    // ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/caritravel/invitation/{$record->id_user}")
+                    ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/caritravel/invitation/" . substr($record->id_user, 0, 10) . "...")
+                    ->copyable()
+                    ->copyMessage('Link Copied')
+                    ->copyMessageDuration(1500)
+                    // ->copyableState(fn ($state): string => $state)
+                    ->copyableState(fn ($record): string => "https://invitation-caritravel.test/caritravel/invitation/{$record->id_user}"),
             ])
             ->filters([
                 //
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

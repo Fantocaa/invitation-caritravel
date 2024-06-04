@@ -53,11 +53,13 @@ class InviteusercmiResource extends Resource
                     ->searchable(),
                 TextColumn::make('link_invitation')
                     ->label('Link Invitation User')
-                    ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/cahayamercusuar/invitation/" . substr($record->id_user, 0, 10) . "...")
+                    // ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/cahayamercusuar/invitation/" . substr($record->id_user, 0, 10) . "...")
+                    ->getStateUsing(fn ($record) => "https://invitation.tako.co.id/cahayamercusuar/invitation/" . substr($record->id_user, 0, 10) . "...")
                     ->copyable()
                     ->copyMessage('Link Copied')
                     ->copyMessageDuration(1500)
-                    ->copyableState(fn ($record): string => "https://invitation-caritravel.test/cahayamercusuar/invitation/{$record->id_user}"),
+                    // ->copyableState(fn ($record): string => "https://invitation-caritravel.test/cahayamercusuar/invitation/{$record->id_user}"),
+                    ->copyableState(fn ($record): string => "https://invitation.tako.co.id/cahayamercusuar/invitation/{$record->id_user}"),
             ])
             ->filters([
                 //

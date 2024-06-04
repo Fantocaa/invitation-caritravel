@@ -56,12 +56,12 @@ class InviteUserResource extends Resource
                 TextColumn::make('link_invitation')
                     ->label('Link Invitation User')
                     // ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/caritravel/invitation/{$record->id_user}")
-                    ->getStateUsing(fn ($record) => "https://invitation-caritravel.test/caritravel/invitation/" . substr($record->id_user, 0, 10) . "...")
+                    ->getStateUsing(fn ($record) => "https://invitation.tako.co.id/caritravel/invitation/" . substr($record->id_user, 0, 10) . "...")
                     ->copyable()
                     ->copyMessage('Link Copied')
                     ->copyMessageDuration(1500)
                     // ->copyableState(fn ($state): string => $state)
-                    ->copyableState(fn ($record): string => "https://invitation-caritravel.test/caritravel/invitation/{$record->id_user}"),
+                    ->copyableState(fn ($record): string => "https://invitation.tako.co.id/caritravel/invitation/{$record->id_user}"),
             ])
             ->filters([
                 //

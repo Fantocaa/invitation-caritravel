@@ -71,7 +71,7 @@ export default function Opening({ setPage }) {
                             />
                         </div>
                         <p
-                            className="text-5xl md:text-7xl font-medium md:font-bold text-pink-600 -tracking-wider pt-10 md:pt-0"
+                            className="text-5xl md:text-8xl font-medium md:font-medium text-pink-600 -tracking-wider pt-10 md:pt-14"
                             data-aos="fade-up"
                             data-aos-delay="500"
                         >
@@ -79,7 +79,7 @@ export default function Opening({ setPage }) {
                         </p>
 
                         <p
-                            className="pt-6 md:pt-32 pb-6 md:pb-8 text-xl font-medium md:font-bold"
+                            className="pt-6 md:pt-16 pb-6 md:pb-12 text-xl font-medium md:font-medium"
                             data-aos="fade-up"
                             data-aos-delay="600"
                         >

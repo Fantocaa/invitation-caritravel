@@ -73,7 +73,7 @@ export default function Map({ setPage }) {
                             target="__blank"
                         >
                             <Button
-                                className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl mb-16"
+                                className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-6 2xl:text-2xl mb-16"
                                 data-aos="fade-up"
                                 data-aos-delay="400"
                             >

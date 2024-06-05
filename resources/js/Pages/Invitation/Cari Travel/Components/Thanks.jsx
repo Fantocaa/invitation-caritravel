@@ -91,7 +91,10 @@ export default function Thanks({ setPage }) {
                                 Instagram
                             </div>
                         </a>
-                        <a href="/" target="__blank">
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61559844646899"
+                            target="__blank"
+                        >
                             <div
                                 className="w-full bg-pink-500 text-white py-4 rounded-full text-xl flex gap-6 justify-center"
                                 data-aos="fade-up"
@@ -101,7 +104,10 @@ export default function Thanks({ setPage }) {
                                 Facebook
                             </div>
                         </a>
-                        <a href="" target="__blank">
+                        <a
+                            href="https://api.whatsapp.com/send?phone=6220818504346"
+                            target="__blank"
+                        >
                             <div
                                 className="w-full bg-pink-500 text-white py-4 rounded-full text-xl flex gap-6 justify-center"
                                 data-aos="fade-up"

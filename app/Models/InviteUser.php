@@ -11,7 +11,7 @@ class InviteUser extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['id_user', 'name', 'status', 'note'];
+    protected $fillable = ['id_user', 'name', 'status', 'note', 'guest_count'];
 
     protected static function booted()
     {

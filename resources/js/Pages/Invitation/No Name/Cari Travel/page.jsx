@@ -2,10 +2,10 @@ import { Head, usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import { Button } from "@/Components/ui/button";
 import Map from "../../Cari Travel/Components/Map";
-// import Invitations from "./Components/Invitation";
 import Thanks from "../../Cari Travel/Components/Thanks";
 import Opening from "./Components/Opening";
 import MainEvent from "./Components/MainEvent";
+import Invitations from "../../Cari Travel/Components/Invitation";
 
 export default function CariTravel() {
     const [page, setPage] = useState("home");
@@ -18,8 +18,8 @@ export default function CariTravel() {
                 return <MainEvent setPage={setPage} />;
             case "products":
                 return <Map setPage={setPage} />;
-            // case "invitation":
-            //     return <Invitations setPage={setPage} />;
+            case "invitation":
+                return <Invitations setPage={setPage} />;
             case "thanks":
                 return <Thanks setPage={setPage} />;
             default:
@@ -68,7 +68,7 @@ export default function CariTravel() {
                             />
                         </button>
                     </li>
-                    {/* <li onClick={() => setPage("invitation")}>
+                    <li onClick={() => setPage("invitation")}>
                         <button>
                             <img
                                 src={
@@ -79,7 +79,7 @@ export default function CariTravel() {
                                 alt="rsvp"
                             />
                         </button>
-                    </li> */}
+                    </li>
                     <li onClick={() => setPage("thanks")}>
                         <button>
                             <img

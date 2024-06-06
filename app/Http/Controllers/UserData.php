@@ -81,21 +81,24 @@ class UserData extends Controller
         return response()->json(['message' => 'Status updated successfully.'], 200);
     }
 
-    public function status_confirmation($uuid)
+    public function status_confirmation(Request $request)
     {
-        // Ambil semua id dan status dari tabel InviteUser
-        // $statuses = InviteUser::select('name', 'status')->get();
+        // dd($request)->all();
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'guest_count' => 'required|string',
+            'status' => 'required|string|in:Hadir,Tidak Hadir',
+        ]);
 
-        // // Kembalikan hasilnya dalam format JSON
-        // return response()->json($statuses);
+        // Create or update the InviteUser record
+        $inviteUser = InviteUser::updateOrCreate(
+            ['name' => $request->name],
+            ['status' => $request->status, 'guest_count' => $request->guest_count]
+        );
 
-        $inviteUser = InviteUser::where('status', $uuid)->first();
-
-        if (!$inviteUser) {
-            return response()->json(['error' => 'User not found'], 404);
-        }
-
-        return response()->json(['status' => $inviteUser->status]);
+        // Return the response
+        return response()->json(['message' => 'Attendance confirmed', 'data' => $inviteUser]);
     }
 
 

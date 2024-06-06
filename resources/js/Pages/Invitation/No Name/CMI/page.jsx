@@ -1,17 +1,11 @@
 import { Head, usePage } from "@inertiajs/react";
 import { useState, useEffect } from "react";
 import { Button } from "@/Components/ui/button";
-// import Opening from "./Components/Opening";
-// import MainEvent from "./Components/MainEvent";
-// import Map from "./Components/Map";
-// import Invitations from "./Components/Invitation";
-// import Thanks from "./Components/Thanks";
-
 import Opening from "./Components/Opening";
-// import MainEvent from "../../CMI/Components/MainEvent";
 import Map from "../../CMI/Components/Map";
 import Thanks from "../../CMI/Components/Thanks";
 import MainEvent from "./Components/MainEvent";
+import Invitations from "../../CMI/Components/Invitation";
 
 export default function CahayaMercusuar() {
     const [page, setPage] = useState("home");
@@ -24,8 +18,8 @@ export default function CahayaMercusuar() {
                 return <MainEvent setPage={setPage} />;
             case "products":
                 return <Map setPage={setPage} />;
-            // case "invitation":
-            //     return <Invitations setPage={setPage} />;
+            case "invitation":
+                return <Invitations setPage={setPage} />;
             case "thanks":
                 return <Thanks setPage={setPage} />;
             default:
@@ -74,7 +68,7 @@ export default function CahayaMercusuar() {
                             />
                         </button>
                     </li>
-                    {/* <li onClick={() => setPage("invitation")}>
+                    <li onClick={() => setPage("invitation")}>
                         <button>
                             <img
                                 src={
@@ -85,7 +79,7 @@ export default function CahayaMercusuar() {
                                 alt="rsvp"
                             />
                         </button>
-                    </li> */}
+                    </li>
                     <li onClick={() => setPage("thanks")}>
                         <button>
                             <img

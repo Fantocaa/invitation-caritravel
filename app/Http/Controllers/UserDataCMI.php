@@ -78,17 +78,24 @@ class UserDataCMI extends Controller
         return response()->json(['message' => 'Status updated successfully.'], 200);
     }
 
-    public function status_confirmation(Request $request, $uuid)
+    public function status_confirmation(Request $request)
     {
+        // dd($request)->all();
+        // Validate the request
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'guest_count' => 'required|string',
+            'status' => 'required|string|in:Hadir,Tidak Hadir',
+        ]);
 
-        // Memeriksa nilai dari 'status' yang dikirimkan dalam permintaan
-        $inviteUser = InviteUserCMI::where('id_user', $uuid)->first();
+        // Create or update the InviteUser record
+        $inviteUser = InviteUserCMI::updateOrCreate(
+            ['name' => $request->name],
+            ['status' => $request->status, 'guest_count' => $request->guest_count]
+        );
 
-        if (!$inviteUser) {
-            return response()->json(['error' => 'User not found'], 404);
-        }
-
-        return response()->json(['status' => $inviteUser->status]);
+        // Return the response
+        return response()->json(['message' => 'Attendance confirmed', 'data' => $inviteUser]);
     }
 
     /**

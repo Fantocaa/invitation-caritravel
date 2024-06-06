@@ -6,37 +6,41 @@ import withReactContent from "sweetalert2-react-content";
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Input } from "@/Components/ui/input";
 
 export default function Invitation({ setPage }) {
     useEffect(() => {
         AOS.init({
-            // disable: "phone",
             duration: 700,
             easing: "ease-out-cubic",
         });
     }, []);
 
-    const { inviteUser } = usePage().props;
-
     const MySwal = withReactContent(Swal);
 
     const confirmAttendance = (status) => {
-        // Mendapatkan token CSRF dari meta tag
+        const name = document.querySelector('input[name="name"]').value;
+        const guestCount = document.querySelector(
+            'input[name="guest_count"]'
+        ).value;
+
+        if (!name || !guestCount) {
+            Swal.fire("Error!", "Isi kolom terlebih dahulu.", "error");
+            return;
+        }
+
         const csrfToken = document
             .querySelector('meta[name="csrf-token"]')
             .getAttribute("content");
 
-        fetch(
-            `/api/caritravel/invitation/${inviteUser.invitation_link}/status`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "X-CSRF-TOKEN": csrfToken,
-                },
-                body: JSON.stringify({ status }), // status akan berisi "Hadir" atau "Tidak Hadir"
-            }
-        )
+        fetch(`/api/caritravel/invitation/status`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-TOKEN": csrfToken,
+            },
+            body: JSON.stringify({ name, guest_count: guestCount, status }),
+        })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(response.statusText);
@@ -44,23 +48,29 @@ export default function Invitation({ setPage }) {
                 return response.json();
             })
             .then((data) => {
-                // Tampilkan pesan sukses menggunakan Swal atau pesan lainnya
                 Swal.fire(
-                    "Terima kasih!",
-                    "Kehadiran Anda telah dikonfirmasi.",
+                    "Thank you!",
+                    "Your attendance has been confirmed.",
                     "success"
                 );
-
-                // Kemudian arahkan pengguna ke halaman yang sesuai
                 setPage("thanks");
             })
             .catch((error) => {
-                // Tampilkan pesan error menggunakan Swal atau pesan lainnya
                 Swal.fire("Error!", `Request failed: ${error}`, "error");
             });
     };
 
     const openModal = () => {
+        const name = document.querySelector('input[name="name"]').value;
+        const guestCount = document.querySelector(
+            'input[name="guest_count"]'
+        ).value;
+
+        if (!name || !guestCount) {
+            Swal.fire("Error!", "Please fill in all the fields.", "error");
+            return;
+        }
+
         MySwal.fire({
             title: <p>Konfirmasi Kehadiran</p>,
             icon: "question",
@@ -75,6 +85,7 @@ export default function Invitation({ setPage }) {
             }
         });
     };
+
     return (
         <>
             <div className="relative w-full h-[calc(100dvh)] font-futura">
@@ -101,11 +112,29 @@ export default function Invitation({ setPage }) {
                             />
                         </div>
                         <p
-                            className="text-2xl max-w-md mx-auto pt-8 pb-8"
+                            className="text-2xl max-w-72 md:max-w-md mx-auto pt-8 pb-4"
                             data-aos="fade-up"
                         >
-                            Klik Tombol Dibawah ini untuk Konfirmasi Kehadiran
+                            Isi terlebih dahulu form dibawah ini
                         </p>
+                        <div className="py-4 flex flex-col gap-4 px-4">
+                            <Input
+                                type="text"
+                                name="name"
+                                placeholder="Nama Tamu Hadir"
+                                className="rounded-xl"
+                                data-aos="fade-up"
+                                data-aos-delay="100"
+                            />
+                            <Input
+                                type="number"
+                                name="guest_count"
+                                placeholder="Jumlah Tamu Hadir"
+                                className="rounded-xl"
+                                data-aos="fade-up"
+                                data-aos-delay="200"
+                            />
+                        </div>
                         <Button
                             className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl mb-16"
                             onClick={openModal}

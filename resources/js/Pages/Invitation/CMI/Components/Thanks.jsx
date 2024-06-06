@@ -55,6 +55,19 @@ export default function Thanks({ setPage }) {
                                 Whatsapp
                             </div>
                         </a>
+                        <a
+                            href="https://www.facebook.com/profile.php?id=61560517953882"
+                            target="__blank"
+                        >
+                            <div
+                                className="w-full bg-orange-400 text-white py-4 rounded-full text-xl flex gap-6 justify-center"
+                                data-aos="fade-up"
+                                data-aos-delay="300"
+                            >
+                                <img src="/images/icon/Union.svg" alt="2" />
+                                Facebook
+                            </div>
+                        </a>
                         <a href="https://cahayamercusuar.com/" target="__blank">
                             <div
                                 className="w-full bg-orange-400 text-white py-3 rounded-full text-lg flex gap-6 justify-center"

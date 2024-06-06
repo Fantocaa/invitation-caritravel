@@ -62,7 +62,7 @@ export default function Map({ setPage }) {
                                 allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
-                                className="mx-auto px-2 w-full xl:max-w-lg h-40 xl:h-32 md:h-72 2xl:min-h-96"
+                                className="mx-auto px-2 w-full xl:max-w-lg h-40 xl:h-32 md:h-72 2xl:min-h-80"
                                 data-aos="fade-up"
                                 data-aos-delay="300"
                             ></iframe>

@@ -112,14 +112,14 @@ export default function MainEvent({ setPage }) {
                             />
                         </div>
                         <p
-                            className="text-5xl md:text-7xl font-medium md:font-bold text-pink-600 -tracking-wider pt-10 md:pt-0"
+                            className="text-5xl md:text-8xl font-medium md:font-bold text-pink-600 -tracking-wider pt-10 md:pt-14"
                             data-aos="fade-up"
                             data-aos-delay="200"
                         >
                             NEW OFFICE
                         </p>
                         <p
-                            className="pt-4 md:pt-16 text-xl"
+                            className="pt-4 md:pt-8 text-xl 2xl:text-2xl"
                             data-aos="fade-up"
                             data-aos-delay="300"
                         >

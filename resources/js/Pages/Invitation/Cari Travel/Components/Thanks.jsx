@@ -78,7 +78,10 @@ export default function Thanks({ setPage }) {
                         </h1>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <a href="/" target="__blank">
+                        <a
+                            href="https://www.instagram.com/cari_travel?igsh=bGF2Nm5qNnJ2dXFz"
+                            target="__blank"
+                        >
                             <div
                                 className="w-full bg-pink-500 text-white py-4 rounded-full text-xl flex gap-6 justify-center"
                                 data-aos="fade-up"
@@ -105,7 +108,7 @@ export default function Thanks({ setPage }) {
                             </div>
                         </a>
                         <a
-                            href="https://api.whatsapp.com/send?phone=6220818504346"
+                            href="https://api.whatsapp.com/send?phone=62818504346"
                             target="__blank"
                         >
                             <div
@@ -120,7 +123,7 @@ export default function Thanks({ setPage }) {
                                 Whatsapp
                             </div>
                         </a>
-                        <a href="" target="__blank">
+                        <a href="https://caritravel.com" target="__blank">
                             <div
                                 className="w-full bg-pink-500 text-white py-4 rounded-full text-xl flex gap-6 justify-center"
                                 data-aos="fade-up"

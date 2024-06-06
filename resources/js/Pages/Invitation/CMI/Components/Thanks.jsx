@@ -39,30 +39,10 @@ export default function Thanks({ setPage }) {
                         </h1>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <a href="/" target="__blank">
-                            <div
-                                className="w-full bg-orange-400 text-white py-3 rounded-full text-lg flex gap-6 justify-center"
-                                data-aos="fade-up"
-                                data-aos-delay="200"
-                            >
-                                <img
-                                    src="/images/icon/Subtract-1.svg"
-                                    alt="1"
-                                />
-                                Instagram
-                            </div>
-                        </a>
-                        <a href="/" target="__blank">
-                            <div
-                                className="w-full bg-orange-400 text-white py-3 rounded-full text-lg flex gap-6 justify-center"
-                                data-aos="fade-up"
-                                data-aos-delay="300"
-                            >
-                                <img src="/images/icon/Union.svg" alt="2" />
-                                Facebook
-                            </div>
-                        </a>
-                        <a href="" target="__blank">
+                        <a
+                            href="https://api.whatsapp.com/send?phone=628170500601"
+                            target="__blank"
+                        >
                             <div
                                 className="w-full bg-orange-400 text-white py-3 rounded-full text-lg flex gap-6 justify-center"
                                 data-aos="fade-up"

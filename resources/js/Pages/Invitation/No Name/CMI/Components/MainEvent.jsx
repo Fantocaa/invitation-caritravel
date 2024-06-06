@@ -57,7 +57,7 @@ export default function MainEvent({ setPage }) {
                         />
                     </div>
                     <p
-                        className="pt-24 md:pt-32 text-xl 2xl:text-2xl"
+                        className="pt-24 md:pt-32 text-base 2xl:text-2xl"
                         data-aos="fade-up"
                         data-aos-delay="300"
                     >
@@ -72,9 +72,11 @@ export default function MainEvent({ setPage }) {
                     />
 
                     {/* <Countdown /> */}
-                    <div className="pb-4 text-lg max-w-80 text-center mx-auto">
-                        <p>Lokasi : </p>
-                        <p className="">
+                    <div className="pb-4 text-base max-w-80 text-center mx-auto">
+                        <p data-aos="fade-up" data-aos-delay="500">
+                            Lokasi :{" "}
+                        </p>
+                        <p>
                             Jl. Dharmahusada Indah Blok I Nomor Ruko 16 E,
                             Surabaya
                         </p>

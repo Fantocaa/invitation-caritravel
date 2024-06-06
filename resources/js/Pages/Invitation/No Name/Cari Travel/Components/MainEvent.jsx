@@ -66,9 +66,9 @@ export default function MainEvent({ setPage }) {
                             PT. CARI TRAVEL INDONESIA
                         </p>
                         <img
-                            src="/images/font/text.png"
+                            src="/images/font/text 2.png"
                             alt="date"
-                            className="w-full h-28 2xl:h-40 object-contain mx-auto my-8 2xl:my-12 px-4 xl:px-0"
+                            className="w-full h-28 2xl:h-40 object-contain mx-auto my-2 2xl:my-12 px-4 xl:px-0"
                             data-aos="fade-up"
                             data-aos-delay="400"
                         />
@@ -81,7 +81,11 @@ export default function MainEvent({ setPage }) {
                             data-aos-delay="400"
                         /> */}
                         {/* <Countdown /> */}
-                        <div className="pb-4 text-lg">
+                        <div
+                            className="pb-4 text-lg"
+                            data-aos="fade-up"
+                            data-aos-delay="500"
+                        >
                             <p>Lokasi : </p>
                             <p className="">
                                 Jl. Dharmahusada Indah Blok I Nomor Ruko 16 E,

@@ -53,7 +53,7 @@ export default function Invitation({ setPage }) {
                     "Your attendance has been confirmed.",
                     "success"
                 );
-                setPage("thanks");
+                setPage("products");
             })
             .catch((error) => {
                 Swal.fire("Error!", `Request failed: ${error}`, "error");

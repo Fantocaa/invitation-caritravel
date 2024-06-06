@@ -16,10 +16,10 @@ export default function CahayaMercusuar() {
                 return <Opening setPage={setPage} />;
             case "about":
                 return <MainEvent setPage={setPage} />;
-            case "products":
-                return <Map setPage={setPage} />;
             case "invitation":
                 return <Invitations setPage={setPage} />;
+            case "products":
+                return <Map setPage={setPage} />;
             case "thanks":
                 return <Thanks setPage={setPage} />;
             default:
@@ -55,6 +55,18 @@ export default function CahayaMercusuar() {
                                 alt="event"
                             />
                         </button>
+                    </li>{" "}
+                    <li onClick={() => setPage("invitation")}>
+                        <button>
+                            <img
+                                src={
+                                    page === "invitation"
+                                        ? "/images/icon/Frame 20.svg"
+                                        : "/images/icon/Frame 21.svg"
+                                }
+                                alt="rsvp"
+                            />
+                        </button>
                     </li>
                     <li onClick={() => setPage("products")}>
                         <button>
@@ -65,18 +77,6 @@ export default function CahayaMercusuar() {
                                         : "/images/icon/Frame 19.svg"
                                 }
                                 alt="map"
-                            />
-                        </button>
-                    </li>
-                    <li onClick={() => setPage("invitation")}>
-                        <button>
-                            <img
-                                src={
-                                    page === "invitation"
-                                        ? "/images/icon/Frame 20.svg"
-                                        : "/images/icon/Frame 21.svg"
-                                }
-                                alt="rsvp"
                             />
                         </button>
                     </li>

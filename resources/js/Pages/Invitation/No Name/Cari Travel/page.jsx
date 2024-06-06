@@ -56,18 +56,7 @@ export default function CariTravel() {
                             />
                         </button>
                     </li>
-                    <li onClick={() => setPage("products")}>
-                        <button>
-                            <img
-                                src={
-                                    page === "products"
-                                        ? "/images/icon/Frame 22.svg"
-                                        : "/images/icon/Frame 19.svg"
-                                }
-                                alt="map"
-                            />
-                        </button>
-                    </li>
+
                     <li onClick={() => setPage("invitation")}>
                         <button>
                             <img
@@ -77,6 +66,18 @@ export default function CariTravel() {
                                         : "/images/icon/Frame 21.svg"
                                 }
                                 alt="rsvp"
+                            />
+                        </button>
+                    </li>
+                    <li onClick={() => setPage("products")}>
+                        <button>
+                            <img
+                                src={
+                                    page === "products"
+                                        ? "/images/icon/Frame 22.svg"
+                                        : "/images/icon/Frame 19.svg"
+                                }
+                                alt="map"
                             />
                         </button>
                     </li>

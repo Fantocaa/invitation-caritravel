@@ -70,6 +70,7 @@ export default function MainEvent({ setPage }) {
                         data-aos="fade-up"
                         data-aos-delay="400"
                     />
+
                     <Countdown />
                     <div className="flex gap-4 justify-center">
                         {/* <a
@@ -81,9 +82,9 @@ export default function MainEvent({ setPage }) {
                             className="bg-orange-400 text-slate-800 rounded-xl font-bold text-xl p-4 2xl:text-2xl 2xl:p-6 "
                             data-aos="fade-up"
                             data-aos-delay="600"
-                            onClick={() => setPage("products")}
+                            onClick={() => setPage("invitation")}
                         >
-                            Lihat Lokasi
+                            Konfirmasi Kehadiran
                         </button>
                         {/* </a> */}
                         {/* <button

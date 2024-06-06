@@ -125,6 +125,13 @@ export default function MainEvent({ setPage }) {
                         >
                             PT. CARI TRAVEL INDONESIA
                         </p>
+                        <img
+                            src="/images/font/text.png"
+                            alt="date"
+                            className="w-full h-28 2xl:h-40 object-contain mx-auto my-8 2xl:my-12 px-4 xl:px-0"
+                            data-aos="fade-up"
+                            data-aos-delay="400"
+                        />
                         {/* <p className="text-sm md:text-2xl py-8">Save the Date</p> */}
                         {/* <img
                             src="/images/font/Font 3.png"
@@ -152,9 +159,9 @@ export default function MainEvent({ setPage }) {
                                 className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl"
                                 data-aos="fade-up"
                                 data-aos-delay="600"
-                                onClick={() => setPage("products")}
+                                onClick={() => setPage("invitation")}
                             >
-                                Lihat Lokasi
+                                Konfirmasi Kehadiran
                             </Button>
                             {/* </a> */}
                             {/* <button

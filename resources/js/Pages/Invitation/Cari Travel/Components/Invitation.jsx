@@ -53,7 +53,7 @@ export default function Invitation({ setPage }) {
                     "Your attendance has been confirmed.",
                     "success"
                 );
-                setPage("thanks");
+                setPage("products");
             })
             .catch((error) => {
                 Swal.fire("Error!", `Request failed: ${error}`, "error");
@@ -139,7 +139,7 @@ export default function Invitation({ setPage }) {
                             className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl mb-16"
                             onClick={openModal}
                             data-aos="fade-up"
-                            data-aos-delay="100"
+                            data-aos-delay="300"
                         >
                             Konfirmasi Kehadiran
                         </Button>

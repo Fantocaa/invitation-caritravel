@@ -55,7 +55,7 @@ export default function Thanks({ setPage }) {
                                 Whatsapp
                             </div>
                         </a>
-                        <a href="" target="__blank">
+                        <a href="https://cahayamercusuar.com/" target="__blank">
                             <div
                                 className="w-full bg-orange-400 text-white py-3 rounded-full text-lg flex gap-6 justify-center"
                                 data-aos="fade-up"

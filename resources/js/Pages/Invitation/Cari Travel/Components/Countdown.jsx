@@ -46,7 +46,7 @@ export default function Countdown() {
         <>
             {timeLeft && (
                 <div
-                    className="countdown xl:text-2xl text-base py-4 my-8 rounded-xl max-w-fit px-4 mx-auto font-futura bg-purple-600 text-white"
+                    className="countdown xl:text-2xl text-sm py-4 my-8 rounded-xl max-w-fit px-4 mx-auto font-futura bg-purple-600 text-white"
                     data-aos="fade-up"
                     data-aos-delay="400"
                 >

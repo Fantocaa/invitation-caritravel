@@ -71,7 +71,14 @@ export default function MainEvent({ setPage }) {
                         data-aos-delay="400"
                     />
 
-                    <Countdown />
+                    {/* <Countdown /> */}
+                    <div className="pb-4 text-lg max-w-80 text-center mx-auto">
+                        <p>Lokasi : </p>
+                        <p className="">
+                            Jl. Dharmahusada Indah Blok I Nomor Ruko 16 E,
+                            Surabaya
+                        </p>
+                    </div>
                     <div className="flex gap-4 justify-center">
                         {/* <a
                             href="https://maps.app.goo.gl/cFNvAkooc2y1bW6w8"

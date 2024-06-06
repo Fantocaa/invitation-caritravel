@@ -17,66 +17,6 @@ export default function MainEvent({ setPage }) {
         });
     }, []);
 
-    // const { inviteUser } = usePage().props;
-
-    // const MySwal = withReactContent(Swal);
-
-    // const confirmAttendance = (status) => {
-    //     // Mendapatkan token CSRF dari meta tag
-    //     const csrfToken = document
-    //         .querySelector('meta[name="csrf-token"]')
-    //         .getAttribute("content");
-
-    //     fetch(
-    //         `/api/cahayamercusuar/invitation/${inviteUser.invitation_link}/status`,
-    //         {
-    //             method: "POST",
-    //             headers: {
-    //                 "Content-Type": "application/json",
-    //                 "X-CSRF-TOKEN": csrfToken,
-    //             },
-    //             body: JSON.stringify({ status }), // status akan berisi "Hadir" atau "Tidak Hadir"
-    //         }
-    //     )
-    //         .then((response) => {
-    //             if (!response.ok) {
-    //                 throw new Error(response.statusText);
-    //             }
-    //             return response.json();
-    //         })
-    //         .then((data) => {
-    //             // Tampilkan pesan sukses menggunakan Swal atau pesan lainnya
-    //             Swal.fire(
-    //                 "Terima kasih!",
-    //                 "Kehadiran Anda telah dikonfirmasi.",
-    //                 "success"
-    //             );
-
-    //             // Kemudian arahkan pengguna ke halaman yang sesuai
-    //             setPage("thanks");
-    //         })
-    //         .catch((error) => {
-    //             // Tampilkan pesan error menggunakan Swal atau pesan lainnya
-    //             Swal.fire("Error!", `Request failed: ${error}`, "error");
-    //         });
-    // };
-
-    // const openModal = () => {
-    //     MySwal.fire({
-    //         title: <p>Konfirmasi Kehadiran</p>,
-    //         icon: "question",
-    //         showCancelButton: true,
-    //         confirmButtonText: "Hadir",
-    //         cancelButtonText: "Tidak Hadir",
-    //     }).then((result) => {
-    //         if (result.isConfirmed) {
-    //             confirmAttendance("Hadir");
-    //         } else if (result.dismiss === Swal.DismissReason.cancel) {
-    //             confirmAttendance("Tidak Hadir");
-    //         }
-    //     });
-    // };
-
     return (
         <>
             <div className="relative w-full h-[calc(100dvh)] font-futura">
@@ -102,7 +42,7 @@ export default function MainEvent({ setPage }) {
                                 data-aos="fade-up"
                             />
                         </div>
-                        <div className="pt-6 translate-y-2">
+                        <div className="translate-y-2">
                             <img
                                 src="/images/font/Font 2.png"
                                 alt="cmi"
@@ -140,7 +80,15 @@ export default function MainEvent({ setPage }) {
                             data-aos="fade-up"
                             data-aos-delay="400"
                         /> */}
-                        <Countdown />
+                        {/* <Countdown /> */}
+                        <div className="pb-4 text-lg">
+                            <p>Lokasi : </p>
+                            <p className="">
+                                Jl. Dharmahusada Indah Blok I Nomor Ruko 16 E,
+                                Surabaya
+                            </p>
+                        </div>
+
                         {/* <Button
                             className="bg-yellow-400 text-slate-800 rounded-xl text-xl p-7 2xl:text-2xl mb-16"
                             onClick={() => setPage("products")}
